@@ -7,7 +7,7 @@
 
 ## Usage
 
-To try it out run:
+To compile:
 
 ```shell
 $ elm make src/app.elm --output app.js
