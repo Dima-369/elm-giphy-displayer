@@ -85,7 +85,7 @@ decodeModelFromLocalStorage model fromStorage =
 
 fireMorePleaseIfLocalStorageEmpty fromStorage =
   if fromStorage == "" then
-    Task.perform LocalStorageEmpty Time.now
+    Task.perform MorePleaseOnTimer Time.now
   else
     Cmd.none
 
@@ -95,11 +95,10 @@ type Msg
   = MorePlease
   | MorePleaseOnTimer Time
   | InitialLoad Time
-  | LocalStorageEmpty Time
   | NewGif (Result Http.Error GiphyJsonDecodeModel)
   | TopicChange String
   | FinishedLoading
-  | Load String
+  | LoadLocalStorage String
 
 getRandomGif : String -> Cmd Msg
 getRandomGif topic =
@@ -124,12 +123,8 @@ update msg model =
             save (Json.Encode.encode 0 (modelAsJsonEasy model)))
         MorePlease ->
           (model, getRandomGif model.topic)
-        LocalStorageEmpty _ ->
-          (model, getRandomGif model.topic)
         MorePleaseOnTimer _ ->
-          model ! []
-            --|> addCmd fireMorePleaseAfterTime
-            |> addCmd (getRandomGif model.topic)
+          (model, getRandomGif model.topic)
         TopicChange newTopic ->
           ( { model | topic = newTopic }, save (Json.Encode.encode 0 (modelAsJson model newTopic)))
         NewGif (Ok new) ->
@@ -141,7 +136,7 @@ update msg model =
             }, Cmd.none)
         NewGif (Err _) ->
           ( { model | showLoadError = True }, Cmd.none)
-        Load modelInStorage ->
+        LoadLocalStorage modelInStorage ->
           ( (decodeModelFromLocalStorage model modelInStorage)
           , fireMorePleaseIfLocalStorageEmpty modelInStorage)
 
@@ -175,7 +170,7 @@ addCmd cmd_ ( model, cmd ) =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  Sub.batch [load Load, Time.every (Time.second * 6) MorePleaseOnTimer]
+  Sub.batch [load LoadLocalStorage, Time.every (Time.second * 6) MorePleaseOnTimer]
 
 
 -- View
