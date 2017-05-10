@@ -11,7 +11,7 @@
 * Based on http://elm-lang.org/examples/http from https://guide.elm-lang.org/architecture/effects/http.html
 * Uses `localStorage` to persist the topic and the current gif
 
-Check the live demo at https://gira-x.github.io/elm-giphy-displayer/
+Check the live demo at https://gira-x.github.io/elm-giphy-displayer/index.html
 
 ## Usage
 
