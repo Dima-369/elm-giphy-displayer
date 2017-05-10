@@ -18,7 +18,7 @@ Check the live demo at https://gira-x.github.io/elm-giphy-displayer/index.html
 To compile:
 
 ```shell
-$ elm make src/Main.elm --output app.js
+$ elm make src/Main.elm --output compiled/app.js
 ```
 
 Then you can open `index.html` in your browser.
