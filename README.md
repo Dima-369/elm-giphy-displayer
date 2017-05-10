@@ -1,5 +1,7 @@
 # elm-giphy-displayer
 
+![](https://github.com/Gira-X/elm-giphy-displayer/raw/master/screenshots/1.png)
+
 ## Features
 
 * Based on http://elm-lang.org/examples/http
