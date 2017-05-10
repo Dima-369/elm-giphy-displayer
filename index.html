@@ -11,15 +11,15 @@
     var storageKey = "storage";
     var node = document.getElementById('app');
     var app = Elm.Main.embed(node);
-    app.ports.save.subscribe(function (value) {
+    app.ports.saveToLocalStorage.subscribe(function (value) {
         localStorage.setItem(storageKey, value);
     });
-    app.ports.doload.subscribe(function () {
+    app.ports.handleLocalStorageLoad.subscribe(function () {
         var item = localStorage.getItem(storageKey);
         if (item) {
-            app.ports.load.send(item);
+            app.ports.processLocalStorage.send(item);
         } else {
-            app.ports.load.send("");
+            app.ports.processLocalStorage.send("");
         }
     });
 </script>

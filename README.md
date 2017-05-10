@@ -12,7 +12,7 @@
 To compile:
 
 ```shell
-$ elm make src/app.elm --output app.js
+$ elm make src/Main.elm --output app.js
 ```
 
 Then you can open `index.html` in your browser.
