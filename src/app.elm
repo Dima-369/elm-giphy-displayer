@@ -182,23 +182,17 @@ subscriptions model =
 
 imageHeight = "550px"
 
-basicStyle : List Style
 basicStyle =
   [ marginTop "3rem"
   , width "800px"
-  , margin "0 auto"]
-
-centered : List Style
-centered =
-  [ textAlign center
-  ]
+  , margin "0 auto"
+  , textAlign center ]
 
 fontStyle =
   [ fontFamily ("-apple-system, '.SFNSText-Regular', San Francisco, Roboto, Segoe UI, " ++
       "Open Sans, sans-serif")
   ]
 
-imageContainer : List Style
 imageContainer =
   [ margin "0 auto"
   , width "100%"
@@ -207,13 +201,11 @@ imageContainer =
   , alignItems center
   , justifyContent center]
 
-imageStyle : List Style
 imageStyle =
   [ display block
   , height imageHeight
   ]
 
-inputStyle : List Style
 inputStyle =
   [ width "30%"
   , padding "6px 6px"
@@ -221,14 +213,6 @@ inputStyle =
   , margin "0 auto"
   , marginTop "2rem"
   , marginBottom "2rem" ]
-
-buttonStyle : List Style
-buttonStyle =
-  [ width "100%" ]
-
-titleStyle =
-  [ fontSize "30px"
-  , color "#444" ]
 
 loadingStyle =
   [ color "#eee"
@@ -249,12 +233,6 @@ hideStyle = style
 showStyle = style
   [ ("visibility", "visible")
   ]
-
-cantFindImageContainerStyle =
-  [ height "500px" ]
-
-cantFindImageStyle =
-  []
 
 gifHistoryItemImage =
   [ width "100px"
@@ -282,9 +260,9 @@ renderHistoryList gifHistory =
 view: Model -> Html Msg
 view model =
     div [style fontStyle]
-      [ div [style (basicStyle ++ centered)]
+      [ div [style basicStyle ]
         [ form [onSubmit MorePlease]
-          [ input [ style inputStyle
+          [ input [ style (inputStyle ++ fontStyle)
                   , type_ "text"
                   , onInput TopicChange
                   , placeholder "Topic..."
@@ -296,9 +274,7 @@ view model =
                 , src model.gifUrl
                 , Html.Events.on "load" (Json.Decode.succeed FinishedLoading)
                 , onClick MorePlease] []
-          , p [ if model.showLoadError then showLayoutStyle else hideLayoutStyle
-              , style cantFindImageStyle
-              ]
+          , p [ if model.showLoadError then showLayoutStyle else hideLayoutStyle ]
               [text "Can't find any image for that topic!"]
           ]
         , p [ style loadingStyle
