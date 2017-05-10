@@ -2,6 +2,8 @@
 
 ![elm-version](https://img.shields.io/badge/Elm-0.18.0-green.svg)
 
+## Screenshot
+
 ![](https://github.com/Gira-X/elm-giphy-displayer/raw/master/screenshots/1.png)
 
 ## Features
