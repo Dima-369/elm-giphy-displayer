@@ -9,5 +9,5 @@ repl-temp-*
 # End of https://www.gitignore.io/api/elm
 
 
-# generated from app.elm
-app.js
+# generated from app.elm, but required for the Github Page
+# app.js
