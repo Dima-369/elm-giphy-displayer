@@ -2,6 +2,7 @@
 
 ## Features
 
+* Based on http://elm-lang.org/examples/http
 * Uses `localStorage` to persist the topic and the current gif
 
 ## Usage
