@@ -4,7 +4,7 @@
 
 ## Features
 
-* Based on http://elm-lang.org/examples/http
+* Based on http://elm-lang.org/examples/http from https://guide.elm-lang.org/architecture/effects/http.html
 * Uses `localStorage` to persist the topic and the current gif
 
 ## Usage
