@@ -256,38 +256,20 @@ cantFindImageContainerStyle =
 cantFindImageStyle =
   []
 
-linkListStyle =
-  [ marginTop "5rem"
-  , listStyleType none ]
-
-linkItemStyle =
-  [ marginTop "5rem"
-  , listStyleType none ]
-
-linkTextItemStyle =
-  [ display inline ]
-
-linkImageItemStyle =
-  [ width "100px"
-  , height "100px" ]
-
-gifHistoryItem item =
-  li [style linkItemStyle]
-    [ img [src item.imageUrl, style linkImageItemStyle] []
-    , p [style linkTextItemStyle] [text item.giphyUrl]
-    ]
-
 gifHistoryItemImage =
   [ width "100px"
   , height "100px"
   , padding "3px" ]
 
-gifHistoryItem2 item =
+gifHistoryItem item =
   a [href item.giphyUrl, target "_blank"]
     [ img [src item.imageUrl, style gifHistoryItemImage] []
     ]
 
-histyle =
+historyLinkUlStyle =
+  [ marginTop "10rem" ]
+
+historyListStyle =
   [ marginTop "7rem"
   , marginBottom "3rem"
   , display "flex"
@@ -295,10 +277,7 @@ histyle =
   , justifyContent center ]
 
 renderHistoryList gifHistory =
-  div [style histyle] (List.map gifHistoryItem2 gifHistory)
-
-renderList gifHistory =
-  ul [style linkListStyle] (List.map gifHistoryItem gifHistory)
+  div [style historyListStyle] (List.map gifHistoryItem gifHistory)
 
 view: Model -> Html Msg
 view model =
