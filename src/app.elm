@@ -2,18 +2,13 @@ port module Main exposing (..)
 
 import Html exposing (Html, div, input, text, button, h1, h2, img, p, a, form, ul, li)
 import Html.Attributes exposing (placeholder, type_, style, src, href, target, value)
-import Html.Events exposing (onInput, onClick, onSubmit, keyCode)
+import Html.Events exposing (onInput, onClick, onSubmit)
+import Style exposing (..)
 import Time exposing (Time, second)
-import Random
-import Process
-import Dict
+import Task exposing (perform)
 import Http
 import Json.Encode
 import Json.Decode
-import Task
-import InlineHover exposing (..)
-import Task exposing (..)
-import Style exposing (..)
 import Regex
 
 port save : String -> Cmd msg
