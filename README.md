@@ -25,5 +25,5 @@ Then you can open `index.html` in your browser.
 
 ### Notes
 
-* `elm-reactor` does not work because `index.html` has to embed the elm app in JS for access to the `localStorage` API through Elm Ports.
+* `elm-reactor` does not work because `index.html` has to embed the elm app in JS for access to the `localStorage` API through Elm Ports
 * The compiled `app.js` is included in the repo for the Github Page demo
